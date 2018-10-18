@@ -1,5 +1,5 @@
 /*
-Isaias Mondar
+IM
 Description: File implements Divide and Conquer algorithm mentioned in CSCI 405 with Dr. Hearne.
 */
 import java.util.ArrayList;

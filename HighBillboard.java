@@ -1,6 +1,6 @@
 
 /*
-Isaias Mondar
+IM
 Description: File implements the Dynamic program solution to the Highway Billboard problem.
 */
 import java.io.File;
@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 
 
 
-public class DynHighwayBillboard{
+public class HighwayBillboard{
     
     
     private static void print(String s ){System.out.print(s);}
