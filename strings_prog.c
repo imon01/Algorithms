@@ -5,19 +5,22 @@
 #include <assert.h>
 
 
-void string_permut(char*, size_t);
 
 int permut(int n);
+void string_permut(char*, size_t);
+
+//Helper functions to (some) string permutation functions
 void swap( char*, int, int);
+int hash (char * str, int, int);
+void fill(  int * arr, size_t len);
+
+void rabin_karp( char*, char*);
+void heaps_perm(char* s, size_t len);
+void kmp(char* word, char * text, size_t len_w, size_t len_t);
+
 void __test_strings__(char*, char*);
 
 
-int hash (char * str, int, int);
-void rabin_karp( char*, char*);
-void fill(  int * arr, size_t len);
-void kmp(char* word, char * text, size_t len_w, size_t len_t);
-
-void heaps_perm(char* s, size_t len);
 void print_matrix(int**, int, int);
 void rotate_matrix(int**, int, int);
 void __test__rotate_matrix( int);
@@ -75,6 +78,47 @@ void rotate_matrix(int** A, int M, int N)
 }
 
 
+void fill(  int * arr, size_t len)
+{
+	while(len--)
+	{
+		arr[len] = 0;
+	}
+}
+
+
+
+/****************************************************************************/
+
+//Test driver to string ops
+void __test_strings__(char *s, char* s2)
+{
+	rabin_karp( s2, s);
+	kmp( s, s2, strlen(s), strlen(s2));	
+}
+
+
+int permut(int n)
+{
+	int numer = 1, save_n = n;
+	
+	while(n)
+	{
+		numer *=n;
+		n--;
+	}
+
+	printf("permuations: %d for n=%d\n", numer, save_n);
+	return numer;
+	
+}
+
+void swap(char *arr, int i,int k)
+{
+	char t = arr[i];
+	arr[i] = arr[k];
+	arr[k] = t;	
+}
 
 void __test__rotate_matrix(int N)
 {
@@ -92,25 +136,15 @@ void __test__rotate_matrix(int N)
 
 
 	print_matrix( A, N, N);
-
-
 	rotate_matrix(A, N, N);
-
-
 	print_matrix( A, N, N);
 }
 
 
-void __test_strings__(char *s, char* s2)
-{
-	rabin_karp( s2, s);
-	kmp( s, s2, strlen(s), strlen(s2));	
-}
-
+//TODO: implement recursive string permutation
 void string_permut(char* str, size_t len);
 {
-	assert(len == strlen(str));
-
+    return;
 }
 
 
@@ -118,7 +152,7 @@ void string_permut(char* str, size_t len);
 void heaps_perm(char* s, size_t len)
 {
 	assert(len==strlen(s));
-
+    //TODO better error handling
 
 	char cost[len];
 	bzero(cost, len);
@@ -151,31 +185,6 @@ void heaps_perm(char* s, size_t len)
 	}
 	printf("\ntotal permutations: %d\n", perms);	
 }
-
-int permut(int n)
-{
-	int numer = 1, save_n = n;
-	
-	while(n)
-	{
-		numer *=n;
-		n--;
-	}
-
-	printf("permuations: %d for n=%d\n", numer, save_n);
-	return numer;
-	
-}
-
-void swap(char *arr, int i,int k)
-{
-	char t = arr[i];
-	arr[i] = arr[k];
-	arr[k] = t;	
-}
-
-
-
 
 // KMP substring match alg
 void kmp(char* word, char * text, size_t len_w, size_t len_t)
@@ -235,17 +244,6 @@ void kmp(char* word, char * text, size_t len_w, size_t len_t)
 		printf("%s\n", text);
 	}
 }
-
-
-
-void fill(  int * arr, size_t len)
-{
-	while(len--)
-	{
-		arr[len] = 0;
-	}
-}
-
 
 
 int hash (char * str, int i, int k)
