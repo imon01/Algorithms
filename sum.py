@@ -1,6 +1,8 @@
 from string import ascii_uppercase as A
-Map = None
 
+"""
+KSum implementaiont and Kadane's Algorithm for max subarray.
+"""
 
 def gen_map():
 	_map = {}
@@ -173,15 +175,7 @@ def KSum(nums, k, target, start):
 				j-=1
 			else:
 				i+=1
-	#	table = {}
-	#	for i in nums:
-	#		table.setdefault( (target-i), i)
-	#		
-	#	for key in table:
-	#		if key in nums:
-	#			t = [table[key], key]
-	#			if t not in results:
-	#				results.append( t)
+
 		return results
 	for i in range(start, len(nums)):
 		#if i > start and nums[i] == nums[i-1]:
