@@ -2,19 +2,10 @@ from string import ascii_uppercase as A
 
 """
 KSum implementaiont and Kadane's Algorithm for max subarray.
+
+KSum remarks: Translation from
+https://www.sigmainfy.com/blog/k-sum-problem-analysis-recursive-implementation-lower-bound.html
 """
-
-def gen_map():
-	_map = {}
-	integer = 0
-	
-	for a in A:
-		_map.setdefault(a, integer)
-		integer = integer + 1
-		print(str(a)+ " : "+str(_map[a]))
-
-	Map = _map
-
 
 def firstDuplicate(a):
 
@@ -151,6 +142,7 @@ def threeSum(nums, target):
                 r -=1
                 
     return result	
+
 
 def KSum(nums, k, target, start):
     """
