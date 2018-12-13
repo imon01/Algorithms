@@ -12,8 +12,9 @@ int min_arg3(int, int, int);
 
 void fill(int*, int);
 void fill2( int**, size_t, size_t);
-
 void __test_fill__( int *v, int len);
+
+
 int OSA(char* , char* , size_t, size_t);
 void __test_OSA__(char*, char*, size_t, size_t);
 
@@ -22,6 +23,10 @@ void display(int * arr, size_t len);
 void display2( int** arr, size_t m, size_t n);
 
 
+/*
+*
+* Remarks: input two comparision strings.
+*/
 int main(int c, char* argv[])
 {
 
