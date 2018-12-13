@@ -172,8 +172,7 @@ def KSum(nums, k, target, start):
 	for i in range(start, len(nums)):
 		#if i > start and nums[i] == nums[i-1]:
 		#	continue
-		k_sum_list  = KSum(nums, k-1, target - nums[i], i+1)
-		print(k_sum_list)	
+		k_sum_list  = KSum(nums, k-1, target - nums[i], i+1)		
 		for tuple_n in k_sum_list:
 			t = [nums[i]]
 			t +=tuple_n
@@ -183,9 +182,12 @@ def KSum(nums, k, target, start):
 
 	return results 
 			 	
-
-#Following Kadane's algorithm
 def maxSubArray(A):
+	"""
+	"Kadane's algorithm
+	"
+	" list A
+	"""
 	max_temp, max_global = A[0], A[0]
 	start, end, n = 0,1,0
 
